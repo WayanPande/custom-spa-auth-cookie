@@ -30,6 +30,14 @@ jobs:
         uses: oven-sh/setup-bun@v2
       - name: Install Dependencies
         run: bun install --frozen-lockfile
+      - name: Create env file
+        run: |
+          touch .env
+          echo VITE_API_URL=${{ secrets.VITE_API_URL }} >> .env
+          echo VITE_COOKIE_NAME=${{ secrets.VITE_COOKIE_NAME }} >> .env
+          echo VITE_AUTH_SECRET=${{ secrets.VITE_AUTH_SECRET }} >> .env
+          echo VITE_ASSET_PATH=${{ secrets.VITE_ASSET_PATH }} >> .env
+          cat .env
       - name: Build
         run: bun run build
       - name: Setup Pages
