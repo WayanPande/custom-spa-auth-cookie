@@ -17,7 +17,7 @@ const hashHistory = createHashHistory();
 const router = createRouter({
   routeTree,
   defaultPreload: "intent",
-  basepath: `/${import.meta.env.VITE_ASSET_PATH ?? ""}`,
+  // basepath: `/${import.meta.env.VITE_ASSET_PATH ?? ""}`,
   history: hashHistory,
 });
 
